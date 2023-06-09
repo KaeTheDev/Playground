@@ -12,15 +12,9 @@ def hello():
     return "HELLO FLASK"
 
 @app.route('/play')          # The "@" decorator associates this route with the function immediately following
-def play():
-    return render_template("play.html", x=3, color="skyblue")
-
 @app.route('/play/<int:x>')          # The "@" decorator associates this route with the function immediately following
-def repeat(x):
-    return render_template("play.html", x=x, color ="skyblue")
-
 @app.route('/play/<int:x>/<string:color>')          # The "@" decorator associates this route with the function immediately following
-def changeColor(x, color):
+def changeColor(x = 3, color = 'skyblue'):
     return render_template("play.html", x=x, color=color)
 
 
